@@ -32,7 +32,7 @@ extension UIView{
             set {
                 self.layer.borderWidth = newValue
             }
-        }
+        }//adjustsFontSizeToFitWidth
     
 }
 extension UILabel{
