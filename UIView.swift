@@ -14,7 +14,7 @@ extension UIView {
         self.clipsToBounds = false
         self.layer.maskedCorners = corners
     }
-    func setUpTriangle(triangleColor:UIColor){
+    func setUpTriangle(triangleColor:UIColor,shape:CAShapeLayer){
         //https://stackoverflow.com/questions/34416012/creating-triangle-with-uibezierpath-in-swift
         let heightWidth = self.frame.size.width
         let path = CGMutablePath()
@@ -24,14 +24,16 @@ extension UIView {
         path.addLine(to: CGPoint(x:heightWidth, y:heightWidth))
         path.addLine(to: CGPoint(x:0, y:heightWidth))
         
-        let shape = CAShapeLayer()
+        let shape = shape
         shape.path = path
         shape.fillColor = triangleColor.cgColor
         
         self .layer.insertSublayer(shape, at: 0)
+        
+        
     }
-    func setDownTriangle(triangleColor:UIColor){
-        let heightWidth = frame.width
+    func setDownTriangle(triangleColor:UIColor,shape:CAShapeLayer) {
+        let heightWidth = self.frame.size.width
            let path = CGMutablePath()
 
            path.move(to: CGPoint(x: 0, y: 0))
@@ -39,10 +41,11 @@ extension UIView {
            path.addLine(to: CGPoint(x:heightWidth, y:0))
            path.addLine(to: CGPoint(x:0, y:0))
 
-           let shape = CAShapeLayer()
+           let shape = shape
            shape.path = path
            shape.fillColor = triangleColor.cgColor
 
            self.layer.insertSublayer(shape, at: 0)
+       
        }
 }
